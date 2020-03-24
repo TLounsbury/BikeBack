@@ -1,19 +1,19 @@
 var express = require('express');
 var router = express.Router();
-var books = require('../modules/books');
+var books = require('../modules/bikes');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/books/team', (request, response, next) => {
+router.get('/bikes/team', (request, response, next) => {
   const result = {
-    "team": 'GeC',
+    "team": 'BikeBois',
     "membersNames":[
-      'Chris Koh',
-      'Gabe Freitas',
-      'Evan Plevinsky'
+      'Jason McGowan',
+      'Parker Dunbar',
+      'Trevor Lounsbury'
     ]
   };
 
@@ -21,7 +21,7 @@ router.get('/books/team', (request, response, next) => {
   response.end(JSON.stringify(result));
 })
 
-router.get('/books/all/:city', (request, response, next) => {
+router.get('/bikes/all/:city', (request, response, next) => {
   const city = request.params.city.toLowerCase();
   var taxRate;
   console.log('City is ' + city);
