@@ -1,0 +1,13 @@
+{
+	"taxes":
+	[
+    {
+        "name":"raleigh",
+        "salesTax":0.075
+    },
+    {
+        "name":"durham",
+        "salesTax":0.08
+	}
+	]
+}

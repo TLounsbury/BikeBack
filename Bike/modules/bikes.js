@@ -7,9 +7,8 @@ let read_json_file = () => {
 
 exports.calculate_prices = (tax) => {
 	let json_result = JSON.parse(read_json_file());
-	let result = json_result.result;
-	for(let i = 0; i < result.length; i++) {
-		result[i].price *= (1 + tax);
+	for(let i = 0; i < json_result.length; i++) {
+		json_result[i].price = (json_result[i].price * (1 + tax)).toFixed(2);
 	}
-	return result;
+	return json_result;
 };

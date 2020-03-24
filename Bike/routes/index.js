@@ -24,16 +24,11 @@ router.get('/bikes/team', (request, response, next) => {
 router.get('/bikes/all/:city', (request, response, next) => {
   const city = request.params.city.toLowerCase();
   var taxRate;
-  console.log('City is ' + city);
 
-  if(city === 'raleigh'){
-    taxRate = 0.075;
-  }
-  else if(city === 'durham'){
-    taxRate = 0.08;
-  }
-  else {
-    //TODO deal with invalid city
+  taxRate = taxes.find_tax(city);
+  if(taxRate === -1){
+    console.log("invalid city");
+    response.sendStatus(400);
   }
 
   const result = bikes.calculate_prices(taxRate);
