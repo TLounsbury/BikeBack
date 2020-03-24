@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var books = require('../modules/bikes');
+var bikes = require('../modules/bikes');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -36,7 +36,7 @@ router.get('/bikes/all/:city', (request, response, next) => {
     //TODO deal with invalid city
   }
 
-  const result = books.calculate_prices(taxRate);
+  const result = bikes.calculate_prices(taxRate);
   response.setHeader('content-type', 'application/json');
   response.end(JSON.stringify(result));
 });
